@@ -4,6 +4,7 @@ when size doesn't matter as much."
 require recipes-core/images/core-image-minimal-dev.bb
 require axxia-image.inc
 require axxia-devsrc.inc
+require axxia-altkernel.inc
 require ${@bb.utils.contains('BBFILE_COLLECTIONS', 'intel-rdk', \
 			     'axxia-rdk.inc', '', d)}
 
@@ -368,10 +369,6 @@ zlib \
 zlib-dev \
 ${LTTNG_SUPPORT} \
 ${LXC_SUPPORT} \
-${@oe.utils.conditional('ALTERNATIVE_KERNELS', '', '', ' \
-			${ALTERNATIVE_KERNELS_INSTALL} \
-			${ALTERNATIVE_KERNELS_MODULES_INSTALL} \
-			${ALTERNATIVE_KERNELS_LTTNG_MODULES}', d)} \
 ${@bb.utils.contains('DISTRO_FEATURES', 'simics', \
 		     'simicsfs-client simics-agent fuse', '', d)} \
 ${@bb.utils.contains('DISTRO_FEATURES', 'multilib', \

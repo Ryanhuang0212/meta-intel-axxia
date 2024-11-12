@@ -1,6 +1,7 @@
 DESCRIPTION = "A minimal image used in simulation."
 
 require axxia-image.inc
+require axxia-altkernel.inc
 require ${@bb.utils.contains('BBFILE_COLLECTIONS', 'intel-rdk', \
 			     'axxia-rdk.inc', '', d)}
 
@@ -114,10 +115,6 @@ tk \
 tmux \
 vlan \
 zlib \
-${@oe.utils.conditional('ALTERNATIVE_KERNELS', '', '', ' \
-			${ALTERNATIVE_KERNELS_INSTALL} \
-			${ALTERNATIVE_KERNELS_MODULES_INSTALL} \
-			${ALTERNATIVE_KERNELS_LTTNG_MODULES}', d)} \
 ${@bb.utils.contains('DISTRO_FEATURES', 'multilib', \
 		     '${MULTILIB_PACKAGES}', '', d)}  \
 ${@bb.utils.contains('DISTRO_FEATURES', 'simics', \
