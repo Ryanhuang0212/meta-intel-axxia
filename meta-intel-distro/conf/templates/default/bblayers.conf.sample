@@ -18,6 +18,7 @@ BBLAYERS ?= " \
   ##OEROOT##/../meta-security/meta-tpm \
   ##OEROOT##/../meta-virtualization \
   ##OEROOT##/../meta-intel \
+  ##OEROOT##/../meta-clang \
   ##OEROOT##/../meta-intel-axxia/meta-intel-bsp \
   ##OEROOT##/../meta-intel-axxia/meta-intel-distro \
   "

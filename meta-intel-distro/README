@@ -82,7 +82,7 @@ II. Building meta-intel-distro
 1.2. Clone the Yocto Project build tools (Poky) environment.
 
    $ cd $YOCTO
-   $ git clone git://git.yoctoproject.org/poky.git
+   $ git clone https://git.yoctoproject.org/poky
    $ cd poky
    $ git checkout <the revision specified in DEPENDENCIES>
 
@@ -91,7 +91,7 @@ II. Building meta-intel-distro
    repository with the following.
 
    $ cd $YOCTO
-   $ git clone https://github.com/openembedded/meta-openembedded.git
+   $ git clone https://github.com/openembedded/meta-openembedded
    $ cd meta-openembedded
    $ git checkout <the revision specified in DEPENDENCIES>
 
@@ -99,7 +99,7 @@ II. Building meta-intel-distro
    virtualization such as Linux Container Support (lxc).
 
    $ cd $YOCTO
-   $ git clone git://git.yoctoproject.org/meta-virtualization
+   $ git clone https://git.yoctoproject.org/meta-virtualization
    $ cd meta-virtualization
    $ git checkout <the revision specified in DEPENDENCIES>
 
@@ -107,7 +107,7 @@ II. Building meta-intel-distro
    metadata which are inherited in Axxia BSPs.
 
    $ cd $YOCTO
-   $ git clone git://git.yoctoproject.org/meta-intel
+   $ git clone https://git.yoctoproject.org/meta-intel
    $ cd meta-intel
    $ git checkout <the revision specified in DEPENDENCIES>
 
@@ -115,8 +115,16 @@ II. Building meta-intel-distro
    utilities used in the axxia-image-dev image.
 
    $ cd $YOCTO
-   $ git clone git://git.yoctoproject.org/meta-security
+   $ git clone https://git.yoctoproject.org/meta-security
    $ cd meta-security
+   $ git checkout <the revision specified in DEPENDENCIES>
+
+1.7. Clone the Yocto Clang meta layer which provides provides clang/llvm
+   as alternative to system C/C++ compiler.
+
+   $ cd $YOCTO
+   $ git clone https://github.com/kraj/meta-clang
+   $ cd meta-clang
    $ git checkout <the revision specified in DEPENDENCIES>
 
 
