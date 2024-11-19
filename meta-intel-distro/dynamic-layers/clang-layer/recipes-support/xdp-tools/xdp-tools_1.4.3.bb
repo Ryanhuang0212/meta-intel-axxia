@@ -6,22 +6,22 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=9ee53f8d06bbdb4c11b1557ecc4f8cd5 \
                     file://LICENSES/LGPL-2.1;md5=b370887980db5dd40659b50909238dbd \
                     file://LICENSES/BSD-2-Clause;md5=5d6306d1b08f8df623178dfd81880927"
 
-DEPENDS += " libbpf clang-native zlib elfutils libpcap"
+DEPENDS += " libbpf clang-native zlib elfutils libpcap bpftool-native"
 
-SRC_URI = "git://github.com/xdp-project/xdp-tools.git;branch=v1.2;protocol=https \
+SRC_URI = "git://github.com/xdp-project/xdp-tools.git;branch=master;protocol=https \
             file://0001-configure-skip-toolchain-checks.patch \
             file://0002-Makefile-It-does-not-detect-libbpf-header-from-sysro.patch \
             file://0003-Makefile-fix-KeyError-failure.patch \
             file://0004-Makefile-fix-libxdp.pc-error.patch \
           "
 
-SRCREV = "57a139f9bf6ef644f9c1deb4f7df4bb4c76d6179"
+SRCREV = "cefc8db8132034721a53078098d8c77e67fdab18"
 
 S = "${WORKDIR}/git"
 
 inherit pkgconfig
 
-EXTRA_OEMAKE += "PREFIX=${D}${prefix} LIBDIR=${D}${libdir} BUILD_STATIC_ONLY=1 PRODUCTION=1"
+EXTRA_OEMAKE += "DESTDIR=${D} PREFIX=${prefix} LIBDIR=${libdir} PRODUCTION=1"
 
 CFLAGS += "-fPIC"
 
