@@ -17,6 +17,8 @@ SRC_URI = "git://github.com/xdp-project/xdp-tools.git;branch=master;protocol=htt
 
 SRCREV = "cefc8db8132034721a53078098d8c77e67fdab18"
 
+CFLAGS += "-ffile-prefix-map=${S}=. -ffile-prefix-map=${STAGING_DIR_TARGET}=."
+
 S = "${WORKDIR}/git"
 
 inherit pkgconfig
