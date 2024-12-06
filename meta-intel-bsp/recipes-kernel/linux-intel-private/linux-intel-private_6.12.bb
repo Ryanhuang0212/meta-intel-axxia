@@ -16,5 +16,3 @@ KERNEL_EXTRA_FEATURES = ""
 KERNEL_FEATURES:remove = "cfg/efi.scc"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
-
-DEPENDS += "elfutils-native openssl-native util-linux-native"

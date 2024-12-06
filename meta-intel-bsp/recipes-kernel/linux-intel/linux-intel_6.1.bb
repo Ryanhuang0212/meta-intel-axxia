@@ -11,8 +11,6 @@ KMETA_BRANCH = "yocto-6.1"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 
-DEPENDS += "elfutils-native openssl-native util-linux-native"
-
 # Functionality flags
 KERNEL_EXTRA_FEATURES ?= "features/netfilter/netfilter.scc features/security/security.scc"
 
