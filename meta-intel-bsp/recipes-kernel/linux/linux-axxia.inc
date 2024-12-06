@@ -18,7 +18,8 @@ COMPATIBLE_MACHINE:intel-axxia-pmr = "${MACHINE}"
 SRC_URI:append:intel-axxia-snr = " ${COMMON_PATCHES} ${SNR_PATCHES}"
 SRC_URI:append:intel-axxia-grr = " ${COMMON_PATCHES} ${GRR_PATCHES}"
 SRC_URI:append:intel-axxia-pmr = " ${COMMON_PATCHES} ${PMR_PATCHES}"
-SRC_URI:append = " file://common.scc file://${CPU}.scc"
+SRC_URI:append = " ${INTEL_AXXIA_FRAGS}"
+INTEL_AXXIA_FRAGS ?= " file://common.scc file://${CPU}.scc"
 
 # If this kernel package is not set as virtual/kernel provider,
 # allow to be used as alternative kernel.
