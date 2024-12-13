@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=9ee53f8d06bbdb4c11b1557ecc4f8cd5 \
                     file://LICENSES/LGPL-2.1;md5=b370887980db5dd40659b50909238dbd \
                     file://LICENSES/BSD-2-Clause;md5=5d6306d1b08f8df623178dfd81880927"
 
-DEPENDS += " libbpf clang-native zlib elfutils libpcap bpftool-native"
+DEPENDS += " libbpf clang-native zlib elfutils libpcap"
 
 SRC_URI = "git://github.com/xdp-project/xdp-tools.git;branch=master;protocol=https \
             file://0001-configure-skip-toolchain-checks.patch \
