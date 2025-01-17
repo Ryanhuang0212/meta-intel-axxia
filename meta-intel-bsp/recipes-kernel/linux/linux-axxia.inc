@@ -3,6 +3,8 @@ FILESEXTRAPATHS:prepend := "\
 :${THISDIR}/patches/${KERNEL_MAJOR_VERSION}/${CPU}\
 :${THISDIR}/frags/${KERNEL_MAJOR_VERSION}:"
 
+PV = "${LINUX_VERSION}+git${SRCPV}"
+
 KERNEL_MAJOR_VERSION = "${@'.'.join(d.getVar('PV').split('.')[0:2])}"
 
 CPU:intel-axxia-snr = "snr"

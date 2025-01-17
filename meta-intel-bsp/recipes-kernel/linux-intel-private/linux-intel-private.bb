@@ -1,12 +1,14 @@
 require recipes-kernel/linux/linux-yocto.inc
 require recipes-kernel/linux/linux-axxia.inc
-require linux-intel-private_6.12.inc
+require linux-intel-private.inc
 
 LINUX_VERSION_EXTENSION = "-intel-private-${LINUX_KERNEL_TYPE}"
 
 SRC_URI = "git://github.com/intel-innersource/networking.wireless.transport.rdk.bts-kernel.git;protocol=https;name=machine;branch=${KBRANCH} \
           "
-KBRANCH = "pmr/latest" 
+
+KBRANCH_INTEL_PRIVATE ?= "pmr/latest" 
+KBRANCH = "${KBRANCH_INTEL_PRIVATE}"
 
 KMETA = ""
 KCONFIG_MODE = "alldefconfig"

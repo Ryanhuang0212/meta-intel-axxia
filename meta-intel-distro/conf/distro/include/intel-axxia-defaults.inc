@@ -5,6 +5,9 @@ PREFERRED_VERSION_linux-intel-debug ?= "${KV}"
 PREFERRED_VERSION_linux-intel-private-debug ?= "${KV}"
 PREFERRED_VERSION_linux-korg-netdev-debug = "${KV}"
 
+PREFERRED_VERSION_linux-intel-private ?= "dev%"
+PREFERRED_VERSION_linux-intel-private-debug ?= "dev%"
+
 GCC_VERSION = "${@bb.utils.contains('DISTRO_FEATURES', 'gcc15', '15.%', \
 		  bb.utils.contains('DISTRO_FEATURES', 'gcc11', '11.%', '13.%', d), d)}"
 PREFERRED_VERSION_gcc ?= "${GCC_VERSION}"

@@ -1,4 +1,4 @@
-require linux-intel-private_6.12.bb
+require linux-intel-private.bb
 
 LINUX_VERSION_EXTENSION = "-intel-private-debug-${LINUX_KERNEL_TYPE}"
 
