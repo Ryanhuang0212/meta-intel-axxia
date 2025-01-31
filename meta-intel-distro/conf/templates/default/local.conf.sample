@@ -1,4 +1,4 @@
-# Intel Axxia hardware board target machine: intel-axxia-snr or intel-axxia-grr
+# Intel Axxia hardware board target machine: intel-axxia-snr, intel-axxia-grr or intel-axxia-pmr
 MACHINE = "intel-axxia-grr"
 
 # Kernel providers (other than defined in the machine configuration file):
