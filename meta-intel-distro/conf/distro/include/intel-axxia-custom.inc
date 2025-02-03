@@ -20,11 +20,11 @@ ${@oe.utils.conditional('PREFERRED_PROVIDER_virtual/kernel',\
 	'linux-yocto-debug', '',    ' linux-yocto-debug', d)}\
 "
 
-KORGNETDEV_ALTERNATIVE_KERNELS ?= "\
+KORGNETNEXT_ALTERNATIVE_KERNELS ?= "\
 ${@oe.utils.conditional('PREFERRED_PROVIDER_virtual/kernel',\
-	'linux-korg-netdev', '',          ' linux-korg-netdet', d)}\
+	'linux-korg-netnext', '',          ' linux-korg-netnext', d)}\
 ${@oe.utils.conditional('PREFERRED_PROVIDER_virtual/kernel',\
-	'linux-korg-netdev-debug', '',    ' linux-korg-netdev-debug', d)}\
+	'linux-korg-netnext-debug', '',    ' linux-korg-netnext-debug', d)}\
 "
 
 LOCAL_ALTERNATIVE_KERNELS ?= ""

@@ -3,7 +3,7 @@ KV = "${@d.getVar('PREFERRED_VERSION_' + d.getVar('PREFERRED_PROVIDER_virtual/ke
 PREFERRED_VERSION_linux-yocto-debug ?= "${KV}"
 PREFERRED_VERSION_linux-intel-debug ?= "${KV}"
 PREFERRED_VERSION_linux-intel-private-debug ?= "${KV}"
-PREFERRED_VERSION_linux-korg-netdev-debug = "${KV}"
+PREFERRED_VERSION_linux-korg-netnext-debug = "${KV}"
 
 PREFERRED_VERSION_linux-intel-private ?= "dev%"
 PREFERRED_VERSION_linux-intel-private-debug ?= "dev%"

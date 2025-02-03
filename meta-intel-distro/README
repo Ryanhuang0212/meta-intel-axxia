@@ -234,15 +234,15 @@ d. Yocto Project repository (git.yoctoproject.org)
   
    Alternative Yocto kernel is linux-yocto-debug.
 
-e. Kernel.org - Netdev networking repository (git.kernel.org)
+e. Kernel.org - Net-Next networking repository (git.kernel.org)
 
-   PREFERRED_PROVIDER_virtual/kernel = "linux-korg-netdev"
+   PREFERRED_PROVIDER_virtual/kernel = "linux-korg-netnext"
    
-   will build kernel from Netdev Group's networking repo from kernel.org
+   will build kernel from Net-Next Group's networking repo from kernel.org
    (https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next):
-      main branch, v6.12 tag
+      main branch
   
-   Alternative Netdev kernel is linux-korg-netdev-debug.
+   Alternative Net-Next kernel is linux-korg-netnext-debug.
 
 f. Kernel.org - Torvalds official repository (git.kernel.org)
 
