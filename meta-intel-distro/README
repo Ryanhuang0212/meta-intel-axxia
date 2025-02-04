@@ -241,7 +241,11 @@ e. Kernel.org - Net-Next networking repository (git.kernel.org)
    will build kernel from Net-Next Group's networking repo from kernel.org
    (https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next):
       main branch
-  
+
+   KORG_NETNEXT_EXTRA_PATH variable can be use in local.conf to set a
+   path containing patches and kernel fragments. All of them will be used
+   to patch kernel sources and to modify .config.
+
    Alternative Net-Next kernel is linux-korg-netnext-debug.
 
 f. Kernel.org - Torvalds official repository (git.kernel.org)
