@@ -8,10 +8,10 @@ SRC_URI:prepend = "git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next
 KBRANCH = "main"
 KMETA_BRANCH = "yocto-6.12"
 
-LINUX_VERSION = "6.12.0"
+LINUX_VERSION = "6.13.0"
 LINUX_VERSION_EXTENSION = "-korg-netnext-${LINUX_KERNEL_TYPE}"
 
-SRCREV_machine = "adc218676eef25575469234709c2d87185ca223a"
+SRCREV_machine = "0ad9617c78acbc71373fb341a6f75d4012b01d69"
 SRCREV_meta = "8f57fada9d056588228a27f6eaaaed9e176cd6a5"
 
 COMMON_PATCHES = " \
