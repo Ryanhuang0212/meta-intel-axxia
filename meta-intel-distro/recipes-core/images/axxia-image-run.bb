@@ -114,6 +114,7 @@ telnetd \
 tk \
 tmux \
 vlan \
+xdp-tools \
 zlib \
 ${@bb.utils.contains('DISTRO_FEATURES', 'multilib', \
 		     '${MULTILIB_PACKAGES}', '', d)}  \
