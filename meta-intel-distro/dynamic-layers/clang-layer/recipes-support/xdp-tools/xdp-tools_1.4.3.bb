@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=9ee53f8d06bbdb4c11b1557ecc4f8cd5 \
 
 DEPENDS += " libbpf clang-native zlib elfutils libpcap"
 
-SRC_URI = "git://github.com/xdp-project/xdp-tools.git;branch=master;protocol=https \
+SRC_URI = "git://github.com/xdp-project/xdp-tools.git;branch=main;protocol=https \
             file://0001-configure-skip-toolchain-checks.patch \
             file://0002-Makefile-It-does-not-detect-libbpf-header-from-sysro.patch \
             file://0003-Makefile-fix-KeyError-failure.patch \
