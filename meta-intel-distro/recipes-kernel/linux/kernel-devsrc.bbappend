@@ -396,6 +396,7 @@ do_install() {
         cp -a --parents kernel/bounds.c $kerneldir/build/
         cp -a --parents kernel/time/timeconst.bc $kerneldir/build/
         cp -a --parents tools/lib $kerneldir/build/
+        cp -a --parents tools/bpf $kerneldir/build/
         cp -a --parents tools/include $kerneldir/build/
         cp -a --parents tools/scripts/utilities.mak $kerneldir/build/
         if [ "${ARCH}" = "x86" ]; then
