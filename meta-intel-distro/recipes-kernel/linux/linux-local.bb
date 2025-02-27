@@ -15,9 +15,10 @@
 #      LTTNG_SUPPORT = ""                                            #
 ######################################################################
 
-# Adjust the following lines with the kernel path and branch
+# Adjust the following variables in local.conf
 LOCAL_KERNEL_PATH ?= "path-to-local-kernel-repository"
 LOCAL_KERNEL_BRANCH ?= "standard/base"
+LOCAL_EXTRA_PATH ?= ""
 
 inherit kernel
 require recipes-kernel/linux/linux-yocto.inc \
@@ -26,7 +27,8 @@ require recipes-kernel/linux/linux-yocto.inc \
 
 LINUX_VERSION_EXTENSION = "-intel-axxia-local-dev"
 
-FILESEXTRAPATHS:prepend := "${THISDIR}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}:\
+${@oe.utils.conditional('LOCAL_EXTRA_PATH', '', '', '${LOCAL_EXTRA_PATH}:', d)}:"
 
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-or-later;md5=fed54355545ffd980b814dab4a3b312c"
 
@@ -45,6 +47,29 @@ do_kernel_configme[depends] += "${PN}:do_prepare_recipe_sysroot"
 COMPATIBLE_MACHINE:intel-axxia-snr = "${MACHINE}"
 COMPATIBLE_MACHINE:intel-axxia-grr = "${MACHINE}"
 COMPATIBLE_MACHINE:intel-axxia-pmr = "${MACHINE}"
+
+# Add in SCR_URI patches and fragments from external path (LOCAL_EXTRA_PATH) if exists
+python __anonymous() {
+    import os, bb
+
+    dir = d.getVar('LOCAL_EXTRA_PATH', True)
+
+    if dir and os.path.isdir(dir):
+        patches = sorted([f for f in os.listdir(dir) if f.endswith('.patch')])
+        configs = sorted([f for f in os.listdir(dir) if f.endswith('.cfg')])
+
+        new_files = []
+
+        for patch in patches:
+            new_files.append("file://" + patch)
+
+        for config in configs:
+            new_files.append("file://" + config)
+
+        if new_files:
+            src_uri = d.getVar('SRC_URI', True) or ""
+            d.setVar('SRC_URI', src_uri + " " + " ".join(new_files))
+}
 
 KERNEL_VERSION_SANITY_SKIP = "1"
 KERNEL_DANGLING_FEATURES_WARN_ONLY = "0"

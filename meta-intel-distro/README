@@ -277,6 +277,7 @@ g. Local Kernel repositories (for Linux development)
    PREFERRED_PROVIDER_virtual/kernel = "linux-local"
    LOCAL_KERNEL_PATH = "<path to local Linux repository>"
    LOCAL_KERNEL_BRANCH = "<branch in the repository>"
+   LOCAL_EXTRA_PATH = "<optional path with extra patches and frags>"
 
    Then, in the meta-intel-distro layer, add a Linux configuration file
    next to linux-local.bb recipe. Copy a full configuration to
@@ -287,6 +288,10 @@ g. Local Kernel repositories (for Linux development)
 
    NOTE: If you want to skip lttng support for your local kernel:
          LTTNG_SUPPORT = ""
+
+   NOTE: LOCAL_EXTRA_PATH variable can be used in local.conf to set a
+   path containing patches and kernel fragments. All of them will be used
+   to patch kernel sources and to modify .config.
 
    KNOWN BUG: lttng-modules with custom kernel based on v6.6.0 which
          includes commit 170c1753279c ("perf/core: Add *group_leader
