@@ -277,11 +277,15 @@ g. Local Kernel repositories (for Linux development)
    PREFERRED_PROVIDER_virtual/kernel = "linux-local"
    LOCAL_KERNEL_PATH = "<path to local Linux repository>"
    LOCAL_KERNEL_BRANCH = "<branch in the repository>"
+   LOCAL_DEFCONFIG = "<optional defconfig with absolut path>"
    LOCAL_EXTRA_PATH = "<optional path with extra patches and frags>"
 
-   Then, in the meta-intel-distro layer, add a Linux configuration file
-   next to linux-local.bb recipe. Copy a full configuration to
-   meta-intel-distro/recipes-kernel/linux/defconfig.
+   NOTE: LOCAL_DEFCONFIG variable can be used in local.conf to specify an
+   absolute path to a file that will be used as the kernel's defconfig.
+   The file can have any name, as it will be automatically renamed.
+
+   If not set, a Linux configuration file need to be copied next to
+   linux-local.bb recipe: meta-intel-distro/recipes-kernel/linux/defconfig.
 
    NOTE: All changes must be committed in the local kernel, as the
          build will clone it using git.

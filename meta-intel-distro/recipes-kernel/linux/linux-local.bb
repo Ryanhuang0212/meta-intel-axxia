@@ -18,6 +18,7 @@
 # Adjust the following variables in local.conf
 LOCAL_KERNEL_PATH ?= "path-to-local-kernel-repository"
 LOCAL_KERNEL_BRANCH ?= "standard/base"
+LOCAL_DEFCONFIG ?= ""
 LOCAL_EXTRA_PATH ?= ""
 
 inherit kernel
@@ -39,7 +40,7 @@ DEPENDS:append = " elfutils-native openssl-native util-linux-native"
 SRCREV_machine = "${AUTOREV}"
 
 SRC_URI = " git://${LOCAL_KERNEL_PATH};name=machine;branch=${LOCAL_KERNEL_BRANCH} \
-	file://defconfig \
+	file://${@oe.utils.conditional('LOCAL_DEFCONFIG', '', 'defconfig', '${LOCAL_DEFCONFIG}', d)} \
 	"
 
 do_kernel_configme[depends] += "${PN}:do_prepare_recipe_sysroot"
@@ -47,6 +48,17 @@ do_kernel_configme[depends] += "${PN}:do_prepare_recipe_sysroot"
 COMPATIBLE_MACHINE:intel-axxia-snr = "${MACHINE}"
 COMPATIBLE_MACHINE:intel-axxia-grr = "${MACHINE}"
 COMPATIBLE_MACHINE:intel-axxia-pmr = "${MACHINE}"
+
+# Rename LOCAL_DEFCONFIG to 'defconfig' and move it in WORKDIR
+handle_defconfig () {
+    if [ -n "${LOCAL_DEFCONFIG}" ]; then
+        if [ -f "${WORKDIR}/${LOCAL_DEFCONFIG}" ]; then
+            mv -f ${WORKDIR}/${LOCAL_DEFCONFIG} ${WORKDIR}/defconfig
+            rm -rf $(dirname ${WORKDIR}/${LOCAL_DEFCONFIG})
+        fi
+    fi
+}
+do_unpack[postfuncs] += "handle_defconfig"
 
 # Add in SCR_URI patches and fragments from external path (LOCAL_EXTRA_PATH) if exists
 python __anonymous() {
@@ -71,5 +83,7 @@ python __anonymous() {
             d.setVar('SRC_URI', src_uri + " " + " ".join(new_files))
 }
 
+KERNEL_EXTRA_FEATURES = ""
+KERNEL_FEATURES:remove = "cfg/efi.scc"
 KERNEL_VERSION_SANITY_SKIP = "1"
 KERNEL_DANGLING_FEATURES_WARN_ONLY = "0"
