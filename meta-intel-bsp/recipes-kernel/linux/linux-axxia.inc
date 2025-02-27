@@ -55,6 +55,7 @@ do_shared_workdir:append() {
 	if [ "${KERNEL_PACKAGE_NAME}" != "kernel" ]; then
 		# Expose kernel tree in work-shared if not preferred provider for virtual/kernel
 		rm -f ${TMPDIR}/work-shared/${MACHINE}/kernel-*-${PN}
+		install -dm 755 ${TMPDIR}/work-shared/${MACHINE}
 		ln -sf ${STAGING_KERNEL_DIR} ${TMPDIR}/work-shared/${MACHINE}/kernel-source-${PN}
 		ln -sf ${STAGING_KERNEL_BUILDDIR} ${TMPDIR}/work-shared/${MACHINE}/kernel-build-artifacts-${PN}
 	fi
