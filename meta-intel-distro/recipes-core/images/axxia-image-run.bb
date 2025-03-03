@@ -104,6 +104,7 @@ python3-robotframework \
 readline \
 rsyslog \
 screen \
+sshpass \
 stress-ng \
 stressapptest \
 swig \
