@@ -16,6 +16,7 @@ axxia-rc-local \
 babeltrace \
 boost \
 boost-dev \
+cifs-utils \
 cpuid \
 cpupower \
 devmem2 \
