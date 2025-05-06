@@ -13,7 +13,7 @@ SRC_URI = "https://lttng.org/files/${BPN}/${BPN}-${PV}.tar.bz2 \
 	   file://0001-Fix-del_timer-_sync-deleted-in-linux-v6.15-rc1.patch \
         "
 
-SRC_URI[sha256sum] = "b0b23504150ae5c1fc6ee14e28d029518f61fe2ec5f17bb61c7941aa52bb6e65"
+SRC_URI[sha256sum] = "a2f38e289817dbd1d2f12cfc1f20390230e16d56323cb58cc1db9874ced400ed"
 
 export INSTALL_MOD_DIR="kernel/lttng-modules"
 
@@ -35,5 +35,5 @@ python do_package:prepend() {
 
 BBCLASSEXTEND = "devupstream:target"
 SRC_URI:class-devupstream = "git://git.lttng.org/lttng-modules;branch=stable-2.13;protocol=https"
-SRCREV:class-devupstream = "c2743efb222ff2f9f2bb2c85849708c5f5ca8669"
+SRCREV:class-devupstream = "dccca77f621c3aafa18501c15598c3bb6137efe7"
 SRCREV_FORMAT ?= "lttng_git"
