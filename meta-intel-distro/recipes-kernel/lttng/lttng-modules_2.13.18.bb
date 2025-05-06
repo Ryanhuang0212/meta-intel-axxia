@@ -11,6 +11,7 @@ include lttng-platforms.inc
 
 SRC_URI = "https://lttng.org/files/${BPN}/${BPN}-${PV}.tar.bz2 \
 	   file://0001-Fix-del_timer-_sync-deleted-in-linux-v6.15-rc1.patch \
+	   file://0001-Fix-trace_balance_dirty_pages-in-Linux-v6.14.2.patch \
         "
 
 SRC_URI[sha256sum] = "a2f38e289817dbd1d2f12cfc1f20390230e16d56323cb58cc1db9874ced400ed"
