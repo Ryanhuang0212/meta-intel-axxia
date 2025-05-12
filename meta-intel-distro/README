@@ -197,7 +197,7 @@ a. Public Intel Github (github.com/intel)
    
    will build kernel from Intel Github public repo
    (https://github.com/intel/linux-intel-lts):
-      6.1/yocto or 6.6/yocto branches
+      6.1/yocto, 6.6/yocto or 6.12/yocto branches
   
    Alternative Intel kernel is linux-intel-debug.
 
@@ -309,9 +309,9 @@ g. Local Kernel repositories (for Linux development)
          
          LTTNG_PERF_FIX_FOR_6.6.0 = "1" 
 
-2.3.5. Select the version for the main kernel: 6.1 or 6.6 (default)
+2.3.5. Select the version for the main kernel: 6.1, 6.6 (default) or 6.12
 
-   PREFERRED_VERSION_(preferred-provider)= "6.1%"
+   PREFERRED_VERSION_(preferred-provider)= "6.12%"
 
 NOTE: No preferred version should be set for linux-local provider.
 
