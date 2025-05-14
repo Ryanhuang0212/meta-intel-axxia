@@ -32,7 +32,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=6bc538ed5bd9a7fc9398086aedcd7e46"
 KERNEL_VERSION_SANITY_SKIP = "1"
 
 # Functionality flags
-KERNEL_EXTRA_FEATURES ?= "features/netfilter/netfilter.scc features/security/security.scc"
+KERNEL_EXTRA_FEATURES = "features/netfilter/netfilter.scc features/security/security.scc"
+KERNEL_EXTRA_FEATURES:remove = "features/debug/debug-kernel.scc"
 
 # Add in SCR_URI patches and fragments from external path (KORG_NETNEXT_EXTRA_PATH) if exists
 KORG_NETNEXT_EXTRA_PATH ?= ""
