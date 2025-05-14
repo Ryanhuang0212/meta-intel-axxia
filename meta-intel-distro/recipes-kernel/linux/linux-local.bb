@@ -60,7 +60,7 @@ handle_defconfig () {
 }
 do_unpack[postfuncs] += "handle_defconfig"
 
-# Add in SCR_URI patches and fragments from external path (LOCAL_EXTRA_PATH) if exists
+# Add in SRC_URI patches and fragments from external path (LOCAL_EXTRA_PATH) if exists
 python __anonymous() {
     import os, bb
 
