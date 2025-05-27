@@ -269,6 +269,7 @@ postfix \
 ppp \
 procps \
 psmisc \
+pyenv \
 python3 \
 python3-babeltrace \
 python3-cffi \
