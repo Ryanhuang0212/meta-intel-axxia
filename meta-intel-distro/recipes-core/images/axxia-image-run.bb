@@ -37,6 +37,7 @@ iasl \
 inetutils \
 initscripts-readonly-rootfs-overlay \
 intel-pcm \
+iperf3 \
 iproute2 \
 iproute2-devlink \
 iproute2-tc \
