@@ -7,6 +7,9 @@ PV = "${LINUX_VERSION}+git${SRCPV}"
 
 KERNEL_MAJOR_VERSION = "${@'.'.join(d.getVar('PV').split('.')[0:2])}"
 
+KERNEL_ARTIFACT_EXTRA = "${@oe.utils.conditional('RELEASE_VERSION', 'default', '', '--${RELEASE_VERSION}', d)}"
+KERNEL_ARTIFACT_NAME = "${PKGE}-${PKGV}-${PKGR}${IMAGE_MACHINE_SUFFIX}${KERNEL_ARTIFACT_EXTRA}${IMAGE_VERSION_SUFFIX}"
+
 CPU:intel-axxia-snr = "snr"
 CPU:intel-axxia-grr = "grr"
 CPU:intel-axxia-pmr = "pmr"
@@ -42,7 +45,7 @@ PROVIDES = "${@ "virtual/kernel" if (d.getVar("KERNEL_PACKAGE_NAME") == "kernel"
 
 do_configure:append() {
 	# Add RELEASE_VERSION in kernel version string
-	if [ "${RELEASE_VERSION}" != "" ]; then
+	if [ "${RELEASE_VERSION}" != "" ] && [ "${RELEASE_VERSION}" != "default" ]; then
 		sed -i "s@utsver=\$\$(echo@utsver=\$\$(echo ${RELEASE_VERSION}@g" ${STAGING_KERNEL_DIR}/init/Makefile
 	fi
 }
