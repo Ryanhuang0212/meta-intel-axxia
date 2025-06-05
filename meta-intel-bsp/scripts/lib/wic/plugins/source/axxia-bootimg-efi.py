@@ -120,7 +120,7 @@ class BootimgEFIPlugin(SourcePlugin):
             grubefi_conf += "}\n"
 
             if get_bitbake_var("ALTERNATIVE_KERNELS") is None or \
-                "altkernel" not in get_bitbake_var("IMAGE_INSTALL"):
+                not any(word.startswith("altkernel") for word in (get_bitbake_var("IMAGE_INSTALL") or "").split()):
                 logger.debug('No alternative kernels defined in ALTERNATIVE_KERNELS')
             else:
                 alt_kernels = get_bitbake_var("ALTERNATIVE_KERNELS")
@@ -240,7 +240,7 @@ class BootimgEFIPlugin(SourcePlugin):
             cfg.close()
 
         if get_bitbake_var("ALTERNATIVE_KERNELS") is None or \
-            "altkernel" not in get_bitbake_var("IMAGE_INSTALL"):
+            not any(word.startswith("altkernel") for word in (get_bitbake_var("IMAGE_INSTALL") or "").split()):
             logger.debug('No alternative kernels defined in ALTERNATIVE_KERNELS')
         else:
             alt_kernels = get_bitbake_var("ALTERNATIVE_KERNELS")
@@ -355,7 +355,7 @@ class BootimgEFIPlugin(SourcePlugin):
                     cls.install_task.append((src, dst))
 
         if get_bitbake_var("ALTERNATIVE_KERNELS") is None or \
-            "altkernel" not in get_bitbake_var("IMAGE_INSTALL"):
+            not any(word.startswith("altkernel") for word in (get_bitbake_var("IMAGE_INSTALL") or "").split()):
             logger.debug('No alternative kernels defined in ALTERNATIVE_KERNELS')
         else:
             alt_kernels = get_bitbake_var("ALTERNATIVE_KERNELS")
