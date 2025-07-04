@@ -231,7 +231,7 @@ d. Yocto Project repository (git.yoctoproject.org)
    
    will build kernel from Yocto Project Source repo
    (https://git.yoctoproject.org/linux-yocto):
-      v6.6/standard/base branch
+      v6.1/standard/base and v6.6/standard/base branches
   
    Alternative Yocto kernel is linux-yocto-debug.
 
