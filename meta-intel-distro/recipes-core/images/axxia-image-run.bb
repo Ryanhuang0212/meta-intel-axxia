@@ -41,6 +41,7 @@ iperf3 \
 iproute2 \
 iproute2-devlink \
 iproute2-tc \
+jansson \
 kernel-dev \
 kernel-modules \
 kexec \
