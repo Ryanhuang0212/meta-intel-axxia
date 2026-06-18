@@ -491,3 +491,4 @@ nativesdk-python3-pyyaml \
 nativesdk-python3-pynetlinux \
 nativesdk-python3-robotframework \
 nativesdk-python3-scapy "
+IMAGE_INSTALL:append = " ipmitool lmsensors-sensors rdk-tools"
