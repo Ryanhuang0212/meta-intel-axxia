@@ -48,6 +48,7 @@ do_compile[cleandirs] = "${S}/install"
 do_compile () {
 	cd ${S}
 	oe_runmake cpk-ae-lib netd-lib
+	rm -rf ${S}/user_modules/ies-api/build
 	oe_runmake ${IES_EXTRA_FLAGS} ies_api_install
 	case "${MACHINE}" in
             "intel-axxia-snr") oe_runmake -j1 qat_lib nura ;;
