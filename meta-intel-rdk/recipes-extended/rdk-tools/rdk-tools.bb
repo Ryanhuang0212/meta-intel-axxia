@@ -24,7 +24,7 @@ DEPENDS = "virtual/kernel libnl libpcap openssl rsync-native thrift meson-native
 
 RDEPENDS:${PN} += "${@oe.utils.conditional('RDK_LTTNG_ENABLE', 'true', 'lttng-ust lttng-tools', '', d)}"
 
-S = "${@oe.utils.conditional('USE_RDK_REPO', 'false', "${WORKDIR}/rdk", "${WORKDIR}/git/rdk", d)}"
+S = "${@oe.utils.conditional('USE_RDK_REPO', 'false', "${WORKDIR}/rdk/rdk", "${WORKDIR}/git/rdk", d)}"
 
 inherit autotools pkgconfig
 
