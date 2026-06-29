@@ -122,6 +122,6 @@ FILES:${PN}-dev = " ${includedir} \
 
 FILES:${PN} = " ${bindir} ${sysconfdir} ${libdir} /home/root/user_modules"
 
-INSANE_SKIP:${PN} = "already-stripped ldflags dev-deps dev-so staticdev arch buildpaths host-user-contaminated"
+INSANE_SKIP:${PN} = "already-stripped ldflags dev-deps dev-so staticdev arch buildpaths host-user-contaminated file-rdeps"
 
 BBCLASSEXTEND = "native nativesdk"
